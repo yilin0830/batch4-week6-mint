@@ -13,36 +13,25 @@ const MainMint = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0])
   const toast = useToast()
 
+  // TODO: 呼叫合約 totalSupply 方法，並寫入到變數 totalSupply
   const getNFTTotalSupply = async () => {
-    const provider = new ethers.providers.Web3Provider(window.ethereum)
-    const signer = provider.getSigner()
-    const contract = new ethers.Contract(
-      KryptoCampNFTAddress,
-      kryptoCampNFTAbi,
-      signer
-    )
 
-    const data = await contract.totalSupply()
-    setTotalSupply(parseInt(data._hex))
   }
 
   // TODO: 呼叫 Contract mint fn
   const handleMint = async () => {
     if (window.ethereum) {
-      // TODO: 設定 Provider
-      const provider = new ethers.providers.Web3Provider(window.ethereum)
-      const signer = provider.getSigner()
-      const contract = new ethers.Contract(
-        KryptoCampNFTAddress,
-        kryptoCampNFTAbi,
-        signer
-      )
+      // TODO: 1) 設定 Provider
+
+      // TODO: 2) 設定 signer
+
+      // TODO: 3) new Contract 實體
+
 
       try {
-        const response = await contract.mint(mintAmount)
-        console.log(response, 'response')
+        // TODO: 4) 呼叫合約 mint 方法
+
       } catch ({ error }) {
-        console.log(error.message)
         showToast(error.message)
         console.error('[Error]', error)
       }
@@ -65,6 +54,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     toast({
       title: `發生錯誤：${error}`,
       status: 'error',
+      position: 'top',
       isClosable: true,
     })
   }
