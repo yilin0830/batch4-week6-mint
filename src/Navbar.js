@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, Button, Flex, Image, Link, Spacer } from '@chakra-ui/react'
+import { Box, Flex, Image, Link, Spacer, Stack } from '@chakra-ui/react'
 import Facebook from './assets/social-media-icons/facebook_32x32.png'
 import Twitter from './assets/social-media-icons/twitter_32x32.png'
 import Email from './assets/social-media-icons/email_32x32.png'
+import { Button } from '@chakra-ui/react'
 
 const Navbar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
@@ -19,17 +20,21 @@ const Navbar = ({ accounts, setAccounts }) => {
   }
 
   return (
-    <Flex justify="space-between" align="center" padding="30px">
+    <Flex
+      className="navbar flex-row"
+      justify="space-between" align="center"
+      direction="row"
+    >
       {/* Left Side - Social Media Icons */}
 
-      <Flex justify="space-around" width="40%" padding="0 75px">
-        <Link href="https://www.facebook.com">
+      <Flex justify="space-around" direction="row">
+        <Link href="https://www.facebook.com" className="items">
           <Image src={Facebook} boxSize="42px" margin="0 15px" />
         </Link>
-        <Link href="https://www.twitter.com">
+        <Link href="https://www.twitter.com" className="items">
           <Image src={Twitter} boxSize="42px" margin="0 15px" />
         </Link>
-        <Link href="https://www.gamil.com">
+        <Link href="https://www.gamil.com" className="items">
           <Image src={Email} boxSize="42px" margin="0 15px" />
         </Link>
       </Flex>
@@ -38,14 +43,15 @@ const Navbar = ({ accounts, setAccounts }) => {
       <Flex
         justify="space-around"
         align="center"
-        width="40%"
-        padding="30px 30px 30px 30px"
+        className="flex-row"
+        // width="40%"
+        padding="30px"
       >
-        <Box margin="0 15px">About</Box>
+        <Box margin="0 15px" className="items">About</Box>
         <Spacer />
-        <Box margin="0 15px">Mint</Box>
+        <Box margin="0 15px" className="items">Mint</Box>
         <Spacer />
-        <Box margin="0 15px">Team</Box>
+        <Box margin="0 15px" className="items">Team</Box>
         <Spacer />
 
         {/* Connect */}
@@ -62,11 +68,13 @@ const Navbar = ({ accounts, setAccounts }) => {
             padding="15px"
             margin="0 15px"
             onClick={connectAccount}
+            colorScheme='yellow'
           >
             Connect
           </Button>
         )}
       </Flex>
+
     </Flex>
   )
 }
