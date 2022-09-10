@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Flex, Image, Link, Spacer, Stack } from '@chakra-ui/react'
+import { Box, Flex, Image, Link, Spacer } from '@chakra-ui/react'
 import Facebook from './assets/social-media-icons/facebook_32x32.png'
 import Twitter from './assets/social-media-icons/twitter_32x32.png'
 import Email from './assets/social-media-icons/email_32x32.png'
@@ -10,13 +10,7 @@ const Navbar = ({ accounts, setAccounts }) => {
 
   // TODO: 連接錢包
   async function connectAccount() {
-    if (window.ethereum) {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts"
-      })
 
-      setAccounts(accounts)
-    }
   }
 
   return (
