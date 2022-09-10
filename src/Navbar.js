@@ -8,15 +8,9 @@ import { Button } from '@chakra-ui/react'
 const Navbar = ({ accounts, setAccounts }) => {
   const isConnected = Boolean(accounts[0]);
 
-  // TODO: 連接錢包
+  // TODO: 請實作連接錢包功能
   async function connectAccount() {
-    if (window.ethereum) {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts"
-      })
 
-      setAccounts(accounts)
-    }
   }
 
   return (
