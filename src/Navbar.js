@@ -11,12 +11,11 @@ const Navbar = ({ accounts, setAccounts }) => {
   // TODO: 連接錢包
   async function connectAccount() {
     // 偵測師否有安裝 ether
-    if (window.ehereum) {
-      const accounts = await window.ehereum.request({
+    if (window.ethereum) {
+      const curAccount = await window.ethereum.request({
         method: 'eth_requestAccounts'
       })
-      
-      setAccounts(accounts)
+      setAccounts(prev => [...prev, curAccount]);
     }
     
   }
