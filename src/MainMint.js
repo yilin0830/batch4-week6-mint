@@ -25,7 +25,6 @@ const MainMint = ({ accounts, setAccounts }) => {
     const currentSupply = await KryptoCampContract.totalSupply();
     const amount = ethers.utils.formatUnits(currentSupply, 0);
     setTotalSupply(amount);
-
   }
 
   // TODO: 呼叫 Contract mint fn
@@ -45,7 +44,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         // TODO: 4) 呼叫合約 mint 方法
         console.log(mintAmount);
         const mintPrice = 0.01;
-        const response = await KryptoCampContract.mint(mintAmount, {value: ethers.utils.parseEther((mintPrice* mintAmount).toString(), 'ether')});
+        const response = await KryptoCampContract.mint(mintAmount, {value: ethers.utils.parseEther((0.01 * mintAmount).toString(), 'ether')});
         
         console.log('response', response);
       } catch ({ error }) {
